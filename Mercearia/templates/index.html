@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercadinho do Zé</title>
+    <link rel="stylesheet" href="{%static 'mercearia/css/mercearia.css' %}">
+<body>
+    <a class="Mercearia" href="/"><h2>Mercearia do Zé</h2></a>
+    <ul class="menu">
+        <li class="lista-menu"><a href="/">Início</a></li>
+        <li class="lista-menu"><a href="/sobre">Sobre</a></li>
+        <li class="lista-menu"><a href="#">Contato</a></li>
+        <l1 class="lista-menu"><a href="/admin">Administração</a></l1>
+    </ul>
+    <form action="{%url 'index'%}" method="POST">{% csrf_token %}
+    <ul>
+
+        <li>
+            <p>Arroz Tio João</p>
+            <img src="{%static 'mercearia/img/arroz.jpg'%}" width="150">
+            <h3>R${{preco_arroz}}/unit.</h3>
+            <input name="Quantidade_Arroz" type="number" placeholder="Qtd. {{qtd_arroz}}" max="{{qtd_arroz}}" min="0" required>
+        </li>
+
+        <li>
+            <p>Guaraná Dolly</p>
+            <img src="{%static 'mercearia/img/dolly.jpg'%}" width="150">
+            <h3>R${{preco_refri}}/unit.</h3>
+            <input name="Quantidade_Refri" type="number" placeholder="Qtd. {{qtd_refri}}" min="0" max="{{qtd_refri}}" required>
+        </li>
+
+        <li>
+            <p>Feijão Preto Máximo</p>
+            <img src="{%static 'mercearia/img/feijao.jpg'%}" width="150">
+            <h3>R${{preco_feijao}}/unit.</h3>
+            <input name="Quantidade_Feijao" type="number" placeholder="Qtd. {{qtd_feijao}}" max="{{qtd_feijao}}" min="0" required>
+            <br>
+            <a href="compra"><button>Finalizar Pedido</button></a>
+        </li>
+    </ul>
+    </form>
+</head>
+</body>
+</html>
