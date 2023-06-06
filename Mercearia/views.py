@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from .models import Mercearia
 
 
@@ -48,6 +49,3 @@ def compras(request):
         return render(request, "compra.html", 0)
 
 
-def sobre(request):
-    if request == 'GET':
-        return render(request, "compra.html", 0)
